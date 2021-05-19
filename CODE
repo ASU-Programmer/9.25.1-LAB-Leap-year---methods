@@ -1,0 +1,64 @@
+ONLY GOT 8/10
+
+
+import java.io.*;
+
+ class LabProgram
+
+ {
+
+   private Console console;
+
+   LabProgram()
+
+   {
+      console = System.console();
+   }
+   public int PromptForInt( String msgStr)
+   {
+       System.out.println("******************************");
+
+       System.out.print(msgStr);
+
+       String inbuff = console.readLine();
+
+       return(Integer.parseInt(inbuff));
+   }
+   
+  public boolean isLeapYear(int userYear)
+  {
+      boolean boolReturn=true;
+
+      if ((userYear%4)==0) 
+      {
+         if ((userYear%100)==0) 
+         {
+             boolReturn = ((userYear%400)==0);        
+         }  
+      }
+      else 
+      {
+           boolReturn=false;
+      }
+     return(boolReturn);
+  }
+  public void Go()
+  {
+      int year = PromptForInt("Please input the year :>");
+      
+      if (isLeapYear(year))
+      {
+         System.out.println( year + " is a leap year" );
+      }
+      else
+      {
+          System.out.println( year + " is not a leap year");
+      }
+  }
+   public static void main(String args[])
+   {
+       LabProgram x = new LabProgram();
+
+       x.Go();
+   }
+ }
